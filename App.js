@@ -6,9 +6,25 @@ import {
   Image,
   ImageBackground,
   ScrollView,
+  Button,
+  Pressable,
 } from "react-native";
 import image from "./assets/adaptive-icon.png";
 export default function App() {
+  const func = (arr, n) => {
+    const newArr = Array.from(Array(n), (_, index) => index + 1);
+    const sum = newArr.reduce((total, current, index) => total + current, 0);
+    const sum2 = arr.reduce((total, current) => total + current, 0);
+    return sum - sum2;
+  };
+  const funcSort = (arr, n) => {
+    const set = new Set(Array.from(new Array(n), (_, index) => index + 1));
+    for (let i of arr) {
+      if (set.has(i)) set.delete(i);
+    }
+    return Array.from(set.values())[0];
+  };
+
   return (
     <View
       style={{
@@ -20,8 +36,46 @@ export default function App() {
     >
       <ScrollView>
         <View style={{ height: 200, width: 200, backgroundColor: "black" }}>
-          <Image source={image} style={{ width: 100, height: 100 }} />
+          <Pressable
+            onPress={() => {
+              console.log("First Image pressed");
+            }}
+          >
+            <Image source={image} style={{ width: 100, height: 100 }} />
+            <Text>
+              test
+              {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident */}
+            </Text>
+          </Pressable>
         </View>
+        <Button
+          title="Press"
+          color="red"
+          onPress={() => {
+            console.log("Hello");
+          }}
+        />
+        <Pressable
+          onPress={() => {
+            console.log("Custom Button");
+          }}
+        >
+          <View
+            style={{
+              paddingVertical: 20,
+              paddingHorizontal: 10,
+              backgroundColor: "white",
+              alignItems: "center",
+            }}
+          >
+            <Text>Custom Button</Text>
+          </View>
+        </Pressable>
         <View style={{ height: 200, width: 200, backgroundColor: "white" }}>
           <Image
             source={require("./assets/adaptive-icon.png")}
@@ -35,7 +89,7 @@ export default function App() {
         <View style={{ height: 50 }}>
           {/* guess what happens if I remove flex:1 */}
           <ImageBackground source={image} style={{ flex: 1 }}>
-            <Text>Haha</Text>
+            <Text>Haha {funcSort([1, 2, 4, 5], 5)}</Text>
           </ImageBackground>
         </View>
         {/* <ScrollView> */}
