@@ -8,3 +8,5 @@ When you set flex: 1 on a View component in React Native, it primarily affects t
 
 The reason you don't need to define display: flex explicitly is that the View component in React Native is designed to work with flexbox layout out of the box. When you use a View component, it's assumed to be a flex container, and you can use flexbox properties like flex, flexDirection, alignItems, and justifyContent to control the layout of its children.
 justify-content aligns elements along the main axis (horizontal or vertical, depending on the flex-direction property)
+
+run project: npx expo start

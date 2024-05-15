@@ -8,7 +8,9 @@ import {
   ScrollView,
   Button,
   Pressable,
+  Modal,
 } from "react-native";
+import { useState } from "react";
 import image from "./assets/adaptive-icon.png";
 export default function App() {
   const func = (arr, n) => {
@@ -24,6 +26,8 @@ export default function App() {
     }
     return Array.from(set.values())[0];
   };
+
+  const [visible, setVisible] = useState(false);
 
   return (
     <View
@@ -62,6 +66,7 @@ export default function App() {
         />
         <Pressable
           onPress={() => {
+            setVisible(true);
             console.log("Custom Button");
           }}
         >
@@ -76,7 +81,33 @@ export default function App() {
             <Text>Custom Button</Text>
           </View>
         </Pressable>
-        <View style={{ height: 200, width: 200, backgroundColor: "white" }}>
+        <Modal
+          visible={visible}
+          animationType="slide"
+          presentationStyle="pageSheet"
+          onRequestClose={() => {
+            setVisible(false);
+          }}
+        >
+          <View
+            style={{
+              flex: 1,
+              backgroundColor: "lightblue",
+              padding: 60,
+              alignItems: "center",
+            }}
+          >
+            <Text>Modal Content</Text>
+            <Button
+              title="Close"
+              color="black"
+              onPress={() => {
+                setVisible(false);
+              }}
+            />
+          </View>
+        </Modal>
+        <View style={{ height: 200, width: 200, backgroundColor: "blue" }}>
           <Image
             source={require("./assets/adaptive-icon.png")}
             style={{ width: 100, height: 100 }}
