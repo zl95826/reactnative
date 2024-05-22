@@ -9,9 +9,13 @@ import {
   Button,
   Pressable,
   Modal,
+  StatusBar,
+  ActivityIndicator,
+  Alert,
 } from "react-native";
 import { useState } from "react";
 import image from "./assets/adaptive-icon.png";
+import Greet from "./components/Greet";
 export default function App() {
   const func = (arr, n) => {
     const newArr = Array.from(Array(n), (_, index) => index + 1);
@@ -38,10 +42,12 @@ export default function App() {
         paddingHorizontal: 25,
       }}
     >
+      <StatusBar backgroundColor="lightgreen" />
       <ScrollView>
         <View style={{ height: 200, width: 200, backgroundColor: "black" }}>
           <Pressable
             onPress={() => {
+              Alert.alert("Invalid", "AAA");
               console.log("First Image pressed");
             }}
           >
@@ -60,9 +66,37 @@ export default function App() {
         <Button
           title="Press"
           color="red"
-          onPress={() => {
-            console.log("Hello");
-          }}
+          onPress={() => Alert.alert("Invalid data", "Invalid DOB")}
+        />
+        <Button
+          title="Delete"
+          color="blue"
+          onPress={() =>
+            Alert.alert(
+              "Confirm",
+              "Are you sure you want to delete this item?",
+              [
+                {
+                  text: "Ask me later",
+                  onPress: () => {
+                    console.log("Ask me later button");
+                  },
+                },
+                {
+                  text: "Yes",
+                  onPress: () => {
+                    console.log("Yes button");
+                  },
+                },
+                {
+                  text: "Cancel",
+                  onPress: () => {
+                    console.log("Cancel button");
+                  },
+                },
+              ]
+            )
+          }
         />
         <Pressable
           onPress={() => {
@@ -104,6 +138,11 @@ export default function App() {
               onPress={() => {
                 setVisible(false);
               }}
+            />
+            <ActivityIndicator
+              size="large"
+              color="midnightblue"
+              animating={visible}
             />
           </View>
         </Modal>
@@ -147,6 +186,16 @@ export default function App() {
           sunt in culpa qui officia deserunt mollit anim id est laborum
         </Text>
         {/* </ScrollView> */}
+        <ActivityIndicator />
+        <ActivityIndicator size="large" />
+        <ActivityIndicator size="large" color="midnightblue" />
+        <ActivityIndicator
+          size="large"
+          color="midnightblue"
+          animating={false}
+        />
+        {/* animating control the visibility of the indicator */}
+        <Greet name="AI" />
       </ScrollView>
     </View>
   );

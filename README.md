@@ -10,3 +10,14 @@ The reason you don't need to define display: flex explicitly is that the View co
 justify-content aligns elements along the main axis (horizontal or vertical, depending on the flex-direction property)
 
 run project: npx expo start
+
+## StatusBar
+
+backgroundColor property only works for Android, we cannot change the backgound color on iOS. We can adjust the text color on both platforms using prop barStyle="default". By default, dark texxt on iOS and white text on Android.
+
+## Alert vs Modal
+
+React Native provides an Alert API, which can be used to display native alert dialogs on Android and iOS.
+Alert dialogs were created to display short messages in the simplest way possible, and that’s why they are limited in their functionality.
+On the other hand, modals are used for complex displays. They require us to define the whole content by ourselves. By default, they provide event listeners like a back button handler.
+on Android we can’t show more than three buttons, and no option is provided to capture users’ inputs. Although iOS allows us to have many buttons and lets users input the data, we still can’t show images, charts, or have any kind of customization except text.
