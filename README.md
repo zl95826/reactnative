@@ -21,3 +21,12 @@ React Native provides an Alert API, which can be used to display native alert di
 Alert dialogs were created to display short messages in the simplest way possible, and that’s why they are limited in their functionality.
 On the other hand, modals are used for complex displays. They require us to define the whole content by ourselves. By default, they provide event listeners like a back button handler.
 on Android we can’t show more than three buttons, and no option is provided to capture users’ inputs. Although iOS allows us to have many buttons and lets users input the data, we still can’t show images, charts, or have any kind of customization except text.
+
+## lineHeight
+
+The lineHeight value is specified in logical pixels (or points), not as a multiplier.
+
+## style
+
+The style prop can be a plain old JavaScript object.
+You can also pass an array of styles - the last style in the array has precedence, so you can use this to inherit styles or use multiple styles to a component.

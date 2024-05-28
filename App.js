@@ -15,7 +15,7 @@ import {
 } from "react-native";
 import { useState } from "react";
 import image from "./assets/adaptive-icon.png";
-import Greet from "./components/Greet";
+import Greet, { styles } from "./components/Greet";
 export default function App() {
   const func = (arr, n) => {
     const newArr = Array.from(Array(n), (_, index) => index + 1);
@@ -163,7 +163,7 @@ export default function App() {
           </ImageBackground>
         </View>
         {/* <ScrollView> */}
-        <Text>
+        <Text style={styles.text}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -201,15 +201,15 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-    //  backgroundColor: "pink",
-    // paddingTop: StatusBar.currentHeight,
-    // alignItems: "center",
-    // justifyContent: "center",
-  },
-});
+//const styles = StyleSheet.create({
+// container: {
+// flex: 1,
+//  backgroundColor: "pink",
+// paddingTop: StatusBar.currentHeight,
+// alignItems: "center",
+// justifyContent: "center",
+//  },
+//});
 
 //in React Native, the <View> component is styled with display: flex by default.
 //Use require('path/to/image.png') for local images.
