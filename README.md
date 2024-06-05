@@ -30,3 +30,7 @@ The lineHeight value is specified in logical pixels (or points), not as a multip
 
 The style prop can be a plain old JavaScript object.
 You can also pass an array of styles - the last style in the array has precedence, so you can use this to inherit styles or use multiple styles to a component.
+
+The boder radius property works in view component in both iOS and Android systems, but only works in text compoent in Android.
+
+In React Native, the default unit for width and height is density-independent pixels, commonly abbreviated as dp or dip. The dp units are similar to px units in web development but are scaled appropriately based on the device's pixel density.
